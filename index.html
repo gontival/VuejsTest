@@ -1,9 +1,15 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <!-- https://unpkg.com/vue -->
 
+
+
+
 <div id="app-7">
+	<div>
+		<p>Original Message : "{{ message }}"</p>
+		<p>Reversed Message : "{{ reversedMessage }}"</p>
+	</div>
 	<ol>
-		<!-- Create an instance of the todo-item component -->
 		<todo-item 
 			v-for="item in gameList"
 			v-bind:todo="item"
@@ -28,7 +34,16 @@
 				{id: 0, text: 'Pokemon Sun'},
 				{id: 1, text: 'Dragon ball FighterZ'},
 				{id: 2, text: 'The legend of Zelda - Breath of the Wild'}
-			]
+			],
+			message : "Games to play : "
+		},
+		computed: {
+			// a computed getter
+			reversedMessage: function(){
+				// 'this' points to the vm instance
+				return this.message.split('').reverse().join('');
+			}
 		}
 	})
+
 </script>

@@ -1,0 +1,68 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<!-- Binding HTML Classes - Object syntax -->
+
+<div id="app">
+<!-- <div v-bind:class=>"{ active: isActive }"</div> -->
+
+<!-- <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError}"></div> -->
+
+<!-- <div v-bind:class="classObject"></div> -->
+
+<!-- Render a list of classes -->
+<!-- <div v-bind:class="[activeClass, errorClass]"></div> -->
+
+<!-- Render a list of classes conditionally -->
+<!-- <div v-bind:class="[isActive ? activeClass : '', errorClass]"></div> -->
+
+<!-- object syntax in array syntax -->
+<!-- <div v-bind:class="[{ active: isActive }, errorClass]"></div> -->
+
+<!-- Binding Inline Styles - Object Syntax -->
+<!-- <div v-bind:style="styleObject">Some text</div> -->
+
+
+<!-- Binding Inline Styles - Array Syntax -->
+<div v-bind:style="[styleObject, baseStyles, overridingStyles]">Some text</div>
+
+</div>
+<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				/*isActive: true,
+				hasError: false*/
+				
+				/*classObject:{
+					active: true,
+					'text-danger': true
+				}*/
+
+				/*isActive: true,
+				error: null*/
+
+				/*isActive: false,
+				activeClass: 'active',
+				errorClass: 'text-danger'*/
+
+				styleObject: {
+					color: 'red',
+					fontSize: '18px'
+				},
+				baseStyles: {
+					'background-color': 'blue'
+				},
+				overridingStyles: {
+					'font-style': 'italic'
+				}
+				
+			},
+			computed: {
+				classObject: function(){
+					return {
+						active: this.isActive && !this.error,
+						'text-danger' : this.error && this.error.type === 'fatal'
+					}
+				}
+			}
+		})
+</script>

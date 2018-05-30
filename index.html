@@ -8,6 +8,7 @@
 	<div>
 		<p>Original Message : "{{ message }}"</p>
 		<p>Reversed Message : "{{ reversedMessage }}"</p>
+		<p>Reversed Message with method : "{{ reverseMessage() }}"</p>
 	</div>
 	<ol>
 		<todo-item 
@@ -36,6 +37,12 @@
 				{id: 2, text: 'The legend of Zelda - Breath of the Wild'}
 			],
 			message : "Games to play : "
+		},
+		// in component
+		methods: {
+			reverseMessage: function(){
+				return this.message.split('').reverse().join('');
+			}
 		},
 		computed: {
 			// a computed getter

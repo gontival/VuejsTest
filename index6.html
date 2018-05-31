@@ -1,23 +1,35 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 
-<!-- Array Change Detection - Mutation methods -->
+<!-- Object Change Detection Caveats -->
 
-<ul id="v-for-object" class="demo">
+<ul id="app" class="demo">
     <!-- <li v-for="(value, key, index) in object" :key ="object.id">
         {{index}}. {{ key }}: {{ value }}
     </li> -->
-    <li v-for="item in items">
+    <!-- <li v-for="item in data">
         {{ item }}
+    </li> -->
+    <li v-for="(value, key) in userProfile">
+        {{key}}: {{value}} 
     </li>
 </ul>
 
 <script>
     var vm = new Vue({
-        el:"#v-for-object",
+        el:"#app",
         data: {
-            items: ['a', 'b', 'c']
+            userProfile:{
+                name: 'Anika'
+            }
         }
     })
-    vm.items[1] = 'x' // is NOT reactive
-    vm.items.length = 2 // is NOT reactive  
+    // Add reactive propeties
+    Vue.set(vm.userProfile, 'age', 27)
+    vm.$set(vm.userProfile, 'city', 'Velizy-VillaCoublay')
+    
+    // Add multiple properties => assign a new object
+    vm.userProfile = Object.assign({}, vm.userProfile, {
+        age: 27,
+        favoriteColor: 'Minion Yellow'
+    })
 </script>

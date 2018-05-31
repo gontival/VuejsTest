@@ -3,8 +3,8 @@
 <!-- Mapping an Array to Elements with v-for -->
 
 <ul id="example-1">
-    <li v-for="item in items">
-        {{ item.message }}
+    <li v-for="(item, index) in items">
+        {{ parentMessage }} -{{ index }} - {{ item.message }}
     </li>
 </ul>
 
@@ -12,6 +12,7 @@
     var example1 = new Vue({
         el: "#example-1",
         data: {
+            parentMessage: 'Parent',
             items: [
                 { message: 'Foo' },
                 { message: 'Bar'}

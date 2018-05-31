@@ -3,22 +3,21 @@
 <!-- Array Change Detection - Mutation methods -->
 
 <ul id="v-for-object" class="demo">
-    <li v-for="(value, key, index) in object" :key ="object.id">
+    <!-- <li v-for="(value, key, index) in object" :key ="object.id">
         {{index}}. {{ key }}: {{ value }}
+    </li> -->
+    <li v-for="item in items">
+        {{ item }}
     </li>
 </ul>
 
 <script>
-    var example1 = new Vue({
-        el: "#v-for-object",
+    var vm = new Vue({
+        el:"#v-for-object",
         data: {
-            object: [
-                    {
-                    firstName: 'John',
-                    lastName: 'Doe',
-                    age: 30
-                }
-            ]
+            items: ['a', 'b', 'c']
         }
     })
+    vm.items[1] = 'x' // is NOT reactive
+    vm.items.length = 2 // is NOT reactive  
 </script>

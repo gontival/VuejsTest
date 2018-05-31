@@ -1,6 +1,6 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 
-<!-- v-for with an Object -->
+<!-- Array Change Detection - Mutation methods -->
 
 <ul id="v-for-object" class="demo">
     <li v-for="(value, key, index) in object" :key ="object.id">
@@ -12,11 +12,13 @@
     var example1 = new Vue({
         el: "#v-for-object",
         data: {
-            object: {
-                firstName: 'John',
-                lastName: 'Doe',
-                age: 30
-            }
+            object: [
+                    {
+                    firstName: 'John',
+                    lastName: 'Doe',
+                    age: 30
+                }
+            ]
         }
     })
 </script>

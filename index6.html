@@ -1,22 +1,22 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 
-<!-- Mapping an Array to Elements with v-for -->
+<!-- v-for with an Object -->
 
-<ul id="example-1">
-    <li v-for="(item, index) in items">
-        {{ parentMessage }} -{{ index }} - {{ item.message }}
+<ul id="v-for-object" class="demo">
+    <li v-for="value in object">
+        {{ value }}
     </li>
 </ul>
 
 <script>
     var example1 = new Vue({
-        el: "#example-1",
+        el: "#v-for-object",
         data: {
-            parentMessage: 'Parent',
-            items: [
-                { message: 'Foo' },
-                { message: 'Bar'}
-            ]
+            object: {
+                firstName: 'John',
+                lastName: 'Doe',
+                age: 30
+            }
         }
     })
 </script>

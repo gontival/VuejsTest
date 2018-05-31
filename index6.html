@@ -1,0 +1,21 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+<!-- Mapping an Array to Elements with v-for -->
+
+<ul id="example-1">
+    <li v-for="item in items">
+        {{ item.message }}
+    </li>
+</ul>
+
+<script>
+    var example1 = new Vue({
+        el: "#example-1",
+        data: {
+            items: [
+                { message: 'Foo' },
+                { message: 'Bar'}
+            ]
+        }
+    })
+</script>

@@ -16,7 +16,12 @@
         <input placeholder="Enter your email address" key="email-input">
         <input type="button" value="Toggle login type" v-on:click="toggleLoginType"/>  
     </template>    
-      
+</div>
+
+<div id="app2">
+    <template>
+        <h1 v-show="bello">Bello ;-)</h1>
+    </template>
 </div>
 
 <script>
@@ -30,6 +35,13 @@
             toggleLoginType: function(){
                 this.loginType = this.loginType ==="username" ?  "email" : "username"
             }
+        }
+    })
+
+    var myVm = new Vue({
+        el: '#app2',
+        data: {
+            bello: true
         }
     })
 </script>

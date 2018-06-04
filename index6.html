@@ -1,4 +1,4 @@
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 
 <!-- Displaying Filtered/Sorted Results -->
 
@@ -13,12 +13,15 @@
         {{key}}: {{value}} 
     </li> -->
     <!-- <li v-for=""> {{ n }}</li> -->
-    <ul>
+    <!-- <ul>
         <template v-for="item in items">
             <li>{{ item.msg }}</li>
-            <li class="divider" role="presentation">-----</li>
+            <li class="divider" role="presentation"></li>
         </template>
-    </ul>
+    </ul> -->
+    <li v-for="todo in todos" v-if="!todo.isComplete">
+        {{ todo }}
+    </li>
 </ul>
 
 <script>
@@ -34,7 +37,13 @@
                 {'msg': 'bello'},
                 {'msg': 'yellow'}
              ],    
-            numbers: [1, 2, 3, 4, 5]
+            numbers: [1, 2, 3, 4, 5],
+            todos: [
+                {'msg':'foo', 'isComplete' : false},
+                {'msg': 'bar', 'isComplete' : false},
+                {'msg': 'bello', 'isComplete' : false},
+                {'msg': 'yellow', 'isComplete' : true}
+             ],    
 
         }
     })

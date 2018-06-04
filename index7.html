@@ -1,0 +1,32 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+<my-component 
+    v-for='item in items' :key="item.id"
+    v-bind:item="item"
+    v-bind:index="index"
+    v-bind:key="item.id">
+</my-component>
+ 
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data: {
+            // userProfile:{
+            //     name: 'Anika'
+            // }
+            items: [
+                {'msg':'foo'},
+                {'msg': 'bar'},
+                {'msg': 'bello'},
+                {'msg': 'yellow'}
+             ],    
+            numbers: [1, 2, 3, 4, 5],
+            todos: [
+                {'msg':'foo', 'isComplete' : true},
+                {'msg': 'bar', 'isComplete' : true},
+                {'msg': 'bello', 'isComplete' : true},
+                {'msg': 'yellow', 'isComplete' : true}
+             ],    
+
+               }
+    })

@@ -19,9 +19,15 @@
             <li class="divider" role="presentation"></li>
         </template>
     </ul> -->
-    <li v-for="todo in todos" v-if="!todo.isComplete">
+    <!-- <li v-for="todo in todos" v-if="!todo.isComplete">
         {{ todo }}
-    </li>
+    </li> -->
+    <ul v-if="todos.length<=0">
+        <li v-for="todo in todos">
+          {{ todo }}
+        </li>
+      </ul>
+      <p v-else>No todos left!</p>
 </ul>
 
 <script>
@@ -39,9 +45,9 @@
              ],    
             numbers: [1, 2, 3, 4, 5],
             todos: [
-                {'msg':'foo', 'isComplete' : false},
-                {'msg': 'bar', 'isComplete' : false},
-                {'msg': 'bello', 'isComplete' : false},
+                {'msg':'foo', 'isComplete' : true},
+                {'msg': 'bar', 'isComplete' : true},
+                {'msg': 'bello', 'isComplete' : true},
                 {'msg': 'yellow', 'isComplete' : true}
              ],    
 
